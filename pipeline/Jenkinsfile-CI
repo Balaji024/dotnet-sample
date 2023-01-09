@@ -1,5 +1,9 @@
 @Library('shared-library') _
-
+def secrets = [
+  [path: 'secret/nexus', engineVersion: 2, secretValues: [
+    [envVar: 'nexus-pass', vaultKey: 'password']]],
+]
+def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'hexa-poc-vault', engineVersion: 2]
 pipeline {
 
     agent any   
@@ -24,7 +28,7 @@ pipeline {
       }   
    stage('Store package to Nexus') {
        steps {
-           StoreToNexus()
+           StoreToNexus(env.nexus-pass)
            cleanWs()
            
        }       
