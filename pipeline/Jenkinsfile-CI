@@ -28,10 +28,11 @@ pipeline {
   //    }   
    stage('Store package to Nexus') {
        steps {
+       withVault([configuration: configuration, vaultSecrets: secrets]) {
            println "${env.nexus}"
            StoreToNexus()
            cleanWs()
-           
+           }
        }       
     }
 }  
