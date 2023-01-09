@@ -1,6 +1,6 @@
 @Library('shared-library-dotnet') _
 def secrets = [
-  [path: 'secret/nexus', engineVersion: 2, secretValues: [
+  [path: 'secret/data/nexus', engineVersion: 2, secretValues: [
     [envVar: 'nexus', vaultKey: 'password']]],
 ]
 def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'hexa-poc-vault', engineVersion: 2]
