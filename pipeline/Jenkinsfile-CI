@@ -1,7 +1,7 @@
 @Library('shared-library-dotnet') _
 def secrets = [
   [path: 'secret/nexus', engineVersion: 2, secretValues: [
-    [envVar: 'nexus-pass', vaultKey: 'password']]],
+    [envVar: 'nexus', vaultKey: 'password']]],
 ]
 def configuration = [vaultUrl: 'http://localhost:8200',  vaultCredentialId: 'hexa-poc-vault', engineVersion: 2]
 pipeline {
@@ -28,7 +28,7 @@ pipeline {
   //    }   
    stage('Store package to Nexus') {
        steps {
-           println "${env.nexus-pass}"
+           println "${env.nexus}"
            StoreToNexus()
            cleanWs()
            
