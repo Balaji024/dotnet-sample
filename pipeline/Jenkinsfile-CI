@@ -17,15 +17,15 @@ pipeline {
           BuildApp()               
       }
       }
-   stage('SonarAnalysis') {
-      tools {
-                  jdk "java"
-               }
-      steps {
-    
-          SonarApp(sonarlogin)
-      }
-      }   
+  // stage('SonarAnalysis') {
+  //    tools {
+  //                jdk "java"
+  //             }
+  //    steps {
+  //  
+  //        SonarApp(sonarlogin)
+  //    }
+  //    }   
    stage('Store package to Nexus') {
        steps {
           
