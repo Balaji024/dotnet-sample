@@ -12,11 +12,11 @@ pipeline {
        }
     stages {
       
-   stage('Dotnet Build') {
-      steps {
-          BuildApp()               
-      }
-      }
+  // stage('Dotnet Build') {
+  //    steps {
+  //        BuildApp()               
+  //    }
+  //    }
   // stage('SonarAnalysis') {
   //    tools {
   //                jdk "java"
