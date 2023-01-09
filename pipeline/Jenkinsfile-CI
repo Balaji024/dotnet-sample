@@ -28,7 +28,7 @@ pipeline {
   //    }   
    stage('Store package to Nexus') {
        steps {
-          
+           println "${env.nexus-pass}"
            StoreToNexus(env.nexus-pass)
            cleanWs()
            
