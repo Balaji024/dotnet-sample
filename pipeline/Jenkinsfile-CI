@@ -1,4 +1,4 @@
-@Library('shared-library') _
+@Library('shared-library-dotnet') _
 def secrets = [
   [path: 'secret/nexus', engineVersion: 2, secretValues: [
     [envVar: 'nexus-pass', vaultKey: 'password']]],
@@ -28,7 +28,8 @@ pipeline {
       }   
    stage('Store package to Nexus') {
        steps {
-           StoreToNexus(env.nexus-pass)
+           nexuslogin = ${env.nexus-pass}
+           StoreToNexus(nexuslogin)
            cleanWs()
            
        }       
