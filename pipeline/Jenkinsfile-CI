@@ -28,7 +28,7 @@ pipeline {
       }   
    stage('Store package to Nexus') {
        steps {
-           nexuslogin = ${env.nexus-pass}
+           def nexuslogin = ${env.nexus-pass}
            StoreToNexus(nexuslogin)
            cleanWs()
            
